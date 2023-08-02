@@ -7,8 +7,8 @@
   <p>{{ course.name }}</p>
   <p>{{ course.description }}</p>
   <p>{{ course.hours }}</p>
-  <!-- <button @click="innerAdd">Add</button> -->
-  <!-- <button @click="outerAdd">Add to parent</button> -->
+
+  <button @click="outerAdd">Add course</button>
 </template>
 
 <script>
@@ -31,6 +31,9 @@ export default {
     },
     outerAdd() {
       this.$emit("count-to-parent");
+    },
+    outerDelete() {
+      this.$emit("delete-to-parent");
     },
   },
 };

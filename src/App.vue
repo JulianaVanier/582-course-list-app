@@ -7,10 +7,11 @@
       v-for="course in courses"
       :course="course"
       :key="course.id"
+      @count-to-parent="addOne"
+      @delete-to-parent="deleteOne"
     ></CourseItem>
   </p>
-  <button @click="addOne">Add to parent</button>
-  <!-- <CourseItem @count-to-parent="addOne" /> -->
+
   <!-- <CourseItem v-for="course in courses" :key="course"></CourseItem> -->
 </template>
 
@@ -23,6 +24,8 @@ export default {
   data() {
     return {
       count: 0,
+      av: "av-label",
+      nav: "av-label disabled",
       courses: [
         {
           id: 1,
@@ -63,6 +66,9 @@ export default {
     addOne() {
       this.count++;
     },
+    deleteOne() {
+      this.count--;
+    },
   },
 };
 </script>
@@ -75,5 +81,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.av-label {
+  background-color: green;
+}
+.av-label.disabled {
+  background-color: red;
 }
 </style>
