@@ -1,6 +1,5 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <h1>Selected courses: {{ count }}</h1>
   <div class="container">
     <div class="groupe-courses">
@@ -13,7 +12,6 @@
       ></CourseItem>
     </div>
   </div>
-  <!-- <CourseItem v-for="course in courses" :key="course"></CourseItem> -->
 </template>
 
 <script>
@@ -126,14 +124,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // margin-top: 60px;
 }
 h1 {
   margin-bottom: 3rem;
 }
 
 .course {
-  // border: 1px solid #cacaca;
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 1rem;
