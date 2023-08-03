@@ -2,8 +2,7 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <p>{{ count }}</p>
-  <!-- <p>{{ button }}</p> -->
-  <p>
+  <div class="groupe-courses">
     <CourseItem
       v-for="course in courses"
       :course="course"
@@ -11,8 +10,7 @@
       @count-to-parent="addOne"
       @delete-to-parent="deleteOne"
     ></CourseItem>
-  </p>
-
+  </div>
   <!-- <CourseItem v-for="course in courses" :key="course"></CourseItem> -->
 </template>
 
@@ -25,35 +23,34 @@ export default {
   data() {
     return {
       count: 0,
-      button: 0,
       courses: [
         {
           id: 1,
           name: "Web Adv Tech",
           description: "Summer course",
           hours: "25",
-          student: "",
+          students: "14",
         },
         {
           id: 2,
           name: "Framework",
           description: "Winter course",
           hours: "20",
-          student: "",
+          students: "20",
         },
         {
           id: 3,
           name: "Wordpress",
           description: "Fall course",
           hours: "16",
-          student: "",
+          students: "2",
         },
         {
           id: 4,
           name: "React",
           description: "Summer course",
           hours: "54",
-          student: "",
+          students: "0",
         },
       ],
     };
@@ -82,10 +79,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.av-label {
-  background-color: green;
-}
-.av-label.disabled {
-  background-color: red;
+.course {
+  border: 1px solid #cacaca;
+  margin-bottom: 20px;
 }
 </style>

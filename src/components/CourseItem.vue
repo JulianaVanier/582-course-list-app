@@ -1,15 +1,16 @@
 <template>
-  <!-- <h2>Course</h2> -->
-  <!-- <p>{{ count }}</p> -->
-
-  <!-- <button @click="innerAdd">Add</button> -->
-  <p>{{ course.id }}</p>
-  <p>{{ course.name }}</p>
-  <p>{{ course.description }}</p>
-  <p>{{ course.hours }}</p>
-
-  <button v-if="button == 0" @click="outerAdd">Add course</button>
-  <button v-else @click="outerDelete">Remove course</button>
+  <div class="course">
+    <p>Id: {{ course.id }}</p>
+    <p>Name: {{ course.name }}</p>
+    <p>Description: {{ course.description }}</p>
+    <p>Hours: {{ course.hours }}</p>
+    <p>Students: {{ course.students }}</p>
+    <!-- <button v-if="button === 0 && course.students <= 20" @click="outerAdd">Add course</button> -->
+    <!-- <button v-if="button === 0" @click="outerAdd">Add course</button> -->
+    <button v-if="course.students >= 20" disabled>Completed</button>
+    <button v-else-if="button === 0" @click="outerAdd">Add course</button>
+    <button v-else @click="outerDelete">Remove course</button>
+  </div>
 </template>
 
 <script>
@@ -17,7 +18,6 @@ export default {
   name: "CourseItem",
   data() {
     return {
-      count: 0,
       button: 0,
     };
   },
