@@ -2,6 +2,7 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <p>{{ count }}</p>
+  <!-- <p>{{ button }}</p> -->
   <p>
     <CourseItem
       v-for="course in courses"
@@ -24,8 +25,7 @@ export default {
   data() {
     return {
       count: 0,
-      av: "av-label",
-      nav: "av-label disabled",
+      button: 0,
       courses: [
         {
           id: 1,

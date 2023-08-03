@@ -8,7 +8,8 @@
   <p>{{ course.description }}</p>
   <p>{{ course.hours }}</p>
 
-  <button @click="outerAdd">Add course</button>
+  <button v-if="button == 0" @click="outerAdd">Add course</button>
+  <button v-else @click="outerDelete">Remove course</button>
 </template>
 
 <script>
@@ -17,6 +18,7 @@ export default {
   data() {
     return {
       count: 0,
+      button: 0,
     };
   },
   props: {
@@ -26,14 +28,16 @@ export default {
     },
   },
   methods: {
-    innerAdd() {
-      this.count++;
-    },
+    // innerAdd() {
+    //   this.count++;
+    // },
     outerAdd() {
       this.$emit("count-to-parent");
+      this.button = 1;
     },
     outerDelete() {
       this.$emit("delete-to-parent");
+      this.button = 0;
     },
   },
 };
