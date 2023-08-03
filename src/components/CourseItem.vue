@@ -5,11 +5,22 @@
     <p>Description: {{ course.description }}</p>
     <p>Hours: {{ course.hours }}</p>
     <p>Students: {{ course.students }}</p>
+    <progress
+      id="file"
+      max="20"
+      :value="parseInt(course.students) + add"
+    ></progress>
     <!-- <button v-if="button === 0 && course.students <= 20" @click="outerAdd">Add course</button> -->
     <!-- <button v-if="button === 0" @click="outerAdd">Add course</button> -->
-    <button v-if="course.students >= 20" disabled>Completed</button>
-    <button v-else-if="button === 0" @click="outerAdd">Add course</button>
-    <button v-else @click="outerDelete">Remove course</button>
+    <button v-if="course.students >= 20" disabled class="button-completed">
+      Completed
+    </button>
+    <button v-else-if="button === 0" @click="outerAdd" class="button-add">
+      Add course
+    </button>
+    <button v-else @click="outerDelete" class="button-remove">
+      Remove course
+    </button>
   </div>
 </template>
 
@@ -19,6 +30,7 @@ export default {
   data() {
     return {
       button: 0,
+      add: 0,
     };
   },
   props: {
@@ -34,10 +46,12 @@ export default {
     outerAdd() {
       this.$emit("count-to-parent");
       this.button = 1;
+      this.add++;
     },
     outerDelete() {
       this.$emit("delete-to-parent");
       this.button = 0;
+      this.add--;
     },
   },
 };
