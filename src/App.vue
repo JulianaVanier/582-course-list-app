@@ -181,7 +181,7 @@ h1 {
 }
 .button-completed {
   border: 1px solid #cacaca;
-  color: red;
+  // color: red;
 }
 
 .button-remove {
