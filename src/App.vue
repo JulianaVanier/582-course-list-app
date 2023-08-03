@@ -8,8 +8,8 @@
         v-for="course in courses"
         :course="course"
         :key="course.id"
-        @count-to-parent="addOne"
-        @delete-to-parent="deleteOne"
+        @count-to-parent="addOne(course)"
+        @delete-to-parent="deleteOne(course)"
       ></CourseItem>
     </div>
   </div>
@@ -104,11 +104,14 @@ export default {
     CourseItem,
   },
   methods: {
-    addOne() {
+    addOne(course) {
+      // console.log(course);
       this.count++;
+      course.students++;
     },
-    deleteOne() {
+    deleteOne(course) {
       this.count--;
+      course.students--;
     },
   },
 };
@@ -123,21 +126,39 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  // margin-top: 60px;
 }
+h1 {
+  margin-bottom: 3rem;
+}
+
 .course {
-  border: 1px solid #cacaca;
+  // border: 1px solid #cacaca;
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 1rem;
   width: 10rem;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 1px 14px 7px rgba(3, 74, 40, 0.15);
+}
+.course h4 {
+  color: #35495e;
+  letter-spacing: 0.5;
+}
+.course p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
 }
 .groupe-courses {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
-  // justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 6rem;
 }
 .container {
   max-width: 1200px;

@@ -1,7 +1,7 @@
 <template>
   <div class="course">
-    <p>Id: {{ course.id }}</p>
-    <p>Name: {{ course.name }}</p>
+    <!-- <p>Id: {{ course.id }}</p> -->
+    <h4>{{ course.name }}</h4>
     <p>Description: {{ course.description }}</p>
     <p>Hours: {{ course.hours }}</p>
     <p>Students: {{ course.students }}</p>
@@ -10,8 +10,6 @@
       max="20"
       :value="parseInt(course.students) + add"
     ></progress>
-    <!-- <button v-if="button === 0 && course.students <= 20" @click="outerAdd">Add course</button> -->
-    <!-- <button v-if="button === 0" @click="outerAdd">Add course</button> -->
     <button v-if="course.students >= 20" disabled class="button-completed">
       Completed
     </button>
