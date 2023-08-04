@@ -10,7 +10,11 @@
       max="20"
       :value="parseInt(course.students) + add"
     ></progress>
-    <button v-if="course.students >= 20" disabled class="button-completed">
+    <button
+      v-if="course.students >= 20 && button === 0"
+      disabled
+      class="button-completed"
+    >
       Completed
     </button>
     <button v-else-if="button === 0" @click="outerAdd" class="button-add">
